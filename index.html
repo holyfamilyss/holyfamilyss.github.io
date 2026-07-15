@@ -221,25 +221,27 @@ body {
 }
 
 #backToTop {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 999;
-  background-color: var(--maroon);
-  color: var(--white);
+  display: none;              /* hidden until scroll */
+  position: fixed;            /* floats on screen */
+  bottom: 20px;               /* distance from bottom */
+  right: 20px;                /* distance from right */
+  z-index: 999;               /* stays above other elements */
+  background-color: #198754;  /* Bootstrap green */
+  color: #fff;
   border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  border-radius: 50%;         /* round button */
+  padding: 12px 16px;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 #backToTop:hover {
-  background-color: var(--deep-green);
+  background-color: #145c32;  /* darker green on hover */
+  transform: scale(1.1);
 }
+
 
 .wave-separator {
   position: relative;
@@ -359,28 +361,40 @@ body {
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
   <div class="container-fluid">
     <!-- Logo + Title -->
-    <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="#">
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
       <img src="logo.png" alt="School Logo" width="50" height="50" class="me-2">
       Holy Family Secondary School Namayumba
     </a>
+
+    <!-- Hamburger Toggle Button -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <!-- Navigation Links -->
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-     <li class="nav-item"><a class="nav-link" href="about.html"><strong>About Us</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Admissions</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Academics</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Library</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>ICT</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Sports</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Student Life</strong></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><strong>Contact Us</strong></a></li>
-        </ul>   
+        <li class="nav-item"><a class="nav-link" href="about.html"><strong>About Us</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Admissions</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Academics</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Library</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>ICT</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Sports</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Student Life</strong></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><strong>Contact Us</strong></a></li>
+      </ul>
     </div>
   </div>
 </nav>
+
 
 
   <!-- Hero Carousel -->
@@ -595,68 +609,44 @@ May God bless you.
   <img src="logo.png" alt="School Logo" class="footer-logo">
 </div>
 
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
 
 
+<!-- Bootstrap JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const faders = document.querySelectorAll('.fade-in');
-    const options = {
-      threshold: 0.2
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, options);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  });
+<script>
+  // Fade-in animation using Intersection Observer
   document.addEventListener("DOMContentLoaded", () => {
     const faders = document.querySelectorAll('.fade-in');
     const options = { threshold: 0.2 };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, options);
 
-    faders.forEach(fader => {
-      observer.observe(fader);
-    });
+    faders.forEach(fader => observer.observe(fader));
   });
 
-</script>
-<!-- Back to Top Button -->
-<button id="backToTop" title="Go to top">↑</button>
-
-<script>
-  // Show button when scrolling down
+  // Back to Top Button
   const backToTop = document.getElementById("backToTop");
-  window.onscroll = function() {
+  window.addEventListener("scroll", () => {
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       backToTop.style.display = "block";
     } else {
       backToTop.style.display = "none";
     }
-  };
+  });
 
-  // Scroll to top when clicked
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
-
 </body>
 </html>
