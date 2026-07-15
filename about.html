@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Family Secondary School Namayumba</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Color palette */
+    :root {
+      --deep-green: #006400;
+      --maroon: #800000;
+      --cream: #fffdd0;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--deep-green);
+    }
+
+    .navbar {
+  background-color: var(--deep-green);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* keeps it above other content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.navbar::after {
+  content: "";
+  display: block;
+  height: 6px;
+  background-color: var(--cream);
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.navbar:hover::after {
+  box-shadow: 0 0 12px var(--cream);
+}
+
+
+.navbar {
+  background-color: var(--deep-green);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+body {
+  padding-top: 85px; /* prevents content from hiding under the fixed banner */
+}
+
+    .navbar a {
+      color: var(--white) !important;
+    }
+    .navbar a:hover {
+      color: var(--maroon) !important;
+    }
+
+    /* Hero carousel aspect ratio */
+    .carousel-item img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: contain; /* shows the whole image */
+  background-color: lightslategrey;(--deep-green); /* fills empty space */
+}
+
+
+    /* Buttons */
+    .hero-btn {
+      margin: 10px;
+      padding: 12px 24px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .btn-inquire {
+      background-color: var(--white);
+      color: var(--deep-green);
+      border: 2px solid var(--deep-green);
+    }
+    .btn-inquire:hover {
+      background-color: var(--maroon);
+      color: var(--white);
+    }
+    .btn-apply {
+      background-color: var(--deep-green);
+      color: var(--white);
+    }
+    .btn-apply:hover {
+      background-color: var(--cream);
+      color: var(--deep-green);
+    }
+    .btn-tour {
+      background-color: var(--maroon);
+      color: var(--white);
+    }
+    .btn-tour:hover {
+      background-color: var(--deep-green);
+      color: var(--white);
+    }
+
+    /* Footer */
+/* Main Footer */
+.site-footer {
+  background-color: var(--deep-green);
+  color: var(--white);
+  padding: 40px 20px 0 20px; /* top padding only, no bottom gap */
+  margin: 0;                /* remove any margin at bottom */
+}
+
+.site-footer h4 {
+  color: var(--cream);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.site-footer p,
+.site-footer ul li a {
+  color: var(--white);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer ul li {
+  margin-bottom: 8px;
+}
+
+.site-footer ul li a:hover {
+  color: var(--maroon);
+  text-decoration: underline;
+}
+
+.social-icons a {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-right: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--maroon);
+  transform: scale(1.2);
+}
+
+/* Footer Bottom: Full Width Black Strip */
+.footer-bottom {
+  background-color: #000; /* solid black strip */
+  color: var(--white);
+  padding: 15px 20px;
+  position: relative;
+  width: 100%; /* ensures full width */
+  margin: 0;   /* no gap between green and black */
+}
+
+.footer-bottom a {
+  color: var(--cream);
+  margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+  color: var(--maroon);
+}
+
+/* Logo watermark */
+.footer-logo {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+  width: 60px;
+  opacity: 0.2; /* faded watermark effect */
+}
+
+
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: var(--maroon);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+#backToTop:hover {
+  background-color: var(--deep-green);
+}
+
+.about-info-block {
+  background-color: var(--cream); /* cream background */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.about-info-block:hover {
+  box-shadow: 0 0 20px rgba(0,128,0,0.4); /* deep green glow */
+  transform: scale(1.02); /* subtle zoom */
+}
+
+.about-info-block h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <!-- Logo + Title -->
+    <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="index.html">
+      <img src="logo.png" alt="School Logo" width="50" height="50" class="me-2">
+      Holy Family Secondary School Namayumba
+    </a>
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+     <li class="nav-item"><a class="nav-link" href="index.html"><strong>Home</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Admissions</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Academics</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Library</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>ICT</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Sports</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Student Life</strong></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><strong>Contact Us</strong></a></li>
+        </ul>   
+    </div>
+  </div>
+</nav>
+
+
+  
+ <!-- About Us Information Block -->
+<section class="about-info-block fade-in container my-5">
+  <h2 style="color: var(--deep-green);">About Us</h2>
+  <p style="line-height:1.6; text-align:justify;">
+    Holy Family Secondary School Namayumba is a Catholic-founded mixed day school,
+    established in 1999 under Kampala Archdiocese. We are committed to academic excellence,
+    ICT innovation, and holistic student development. Our institution nurtures learners
+    to grow academically, spiritually, and socially, preparing them to become responsible
+    citizens who live by our guiding motto: <strong>“In God We Succeed.”</strong>
+  </p>
+</section>
+
+
+
+<!-- News & Events -->
+<section class="fade-in container my-5" style="background-color: var(--maroon); color: var(--cream); padding:20px; border-radius:8px;">
+  <h2 class="text-center">News & Events</h2>
+  <ul>
+    <li>ICT Lab Upgrade – July 2026</li>
+    <li>Sports Day – August 2026</li>
+    <li>A-Level Career Guidance – September 2026</li>
+  </ul>
+</section>
+
+
+  <!-- Hero Buttons -->
+  <div class="text-center my-4">
+    <a href="index.html" class="hero-btn btn-inquire">Back Home</a>
+    <a href="#" class="hero-btn btn-apply">Apply</a>
+  </div>
+
+
+<!-- Footer Bottom (separate full-width strip) -->
+<div class="footer-bottom">
+  <div class="container text-center">
+    <p>© 2026 Holy Family Secondary School Namayumba. All Rights Reserved.</p>
+    <p><a href="#">Support</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+  </div>
+  <!-- Logo watermark -->
+  <img src="logo.png" alt="School Logo" class="footer-logo">
+</div>
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const faders = document.querySelectorAll('.fade-in');
+    const options = {
+      threshold: 0.2
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, options);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.2 };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(fader => {
+      observer.observe(fader);
+    });
+  });
+
+</script>
+<!-- Back to Top Button -->
+<button id="backToTop" title="Go to top">↑</button>
+
+<script>
+  // Show button when scrolling down
+  const backToTop = document.getElementById("backToTop");
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  };
+
+  // Scroll to top when clicked
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
