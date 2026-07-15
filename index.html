@@ -68,6 +68,19 @@ body {
     .navbar a:hover {
       color: var(--maroon) !important;
     }
+.navbar-brand {
+  white-space: normal;   /* allow text to wrap */
+  word-wrap: break-word; /* break long words if needed */
+  font-size: 1rem;       /* adjust size for smaller screens */
+  max-width: 70%;        /* prevent it from stretching too wide */
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 0.9rem;   /* smaller text on phones */
+    line-height: 1.2;    /* tighter spacing */
+  }
+}
 
     /* Hero carousel aspect ratio */
     .carousel-item img {
