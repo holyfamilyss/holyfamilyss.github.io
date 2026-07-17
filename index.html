@@ -7,6 +7,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
     /* Color palette */
@@ -371,10 +372,107 @@ body {
 }
 
 
+.features-section {
+  background-color: #f9f9f9;
+}
+
+.feature-box {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+.feature-title {
+  text-align: center; /* keep headers centered */
+  color: #004d26;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.feature-text {
+  text-align: justify; /* justify descriptions */
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.feature-icon {
+  font-size: 40px;
+  color: #004d26; /* deep green */
+  margin-bottom: 15px;
+}
+
+.feature-box h5 {
+  color: #004d26;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.feature-box:hover {
+  box-shadow: 0 0 20px #004d26; /* glowing deep-green hover */
+  transform: translateY(-5px);
+}
+
+.contact-box {
+  background: #004d26;       /* deep green background */
+  color: #ffffff;            /* white text for contrast */
+  border-radius: 15px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.contact-box .feature-icon {
+  font-size: 40px;
+  color: #ffffff;            /* white icon */
+  margin-bottom: 15px;
+}
+
+.contact-box .feature-title {
+  text-align: left;
+  color: #ffffff;            /* white header */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.contact-box .feature-text {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff;            /* white description */
+}
+
+.contact-box:hover {
+  box-shadow: 0 0 20px #004d26; /* glowing effect */
+  transform: translateY(-5px);
+}
+.contact-btn {
+  background-color: #ffffff;
+  color: #004d26; /* deep green text */
+  border: none;
+  border-radius: 0px;
+  padding: 5px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 8px; /* space between icon and button */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #007bff; /* blue on hover */
+  color: #ffffff;
+}
+
+
   </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#006400;">
+
   <div class="container-fluid">
     <!-- Logo + Title -->
     <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
@@ -383,14 +481,15 @@ body {
     </a>
 
     <!-- Hamburger Toggle Button -->
-    <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+  <i class="bi bi-list"></i>
+</button>
+
 
     <!-- Navigation Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -557,6 +656,77 @@ May God bless you.
 </section>
 
 
+<section class="features-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Academic Excellence -->
+      <div class="col-md-3">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-book-half"></i>
+          </div>
+          <h5 class="feature-title">Academic Excellence</h5>
+          <p class="feature-text">We are well equipped to ensure continuous academic growth, ranking among the top schools in performance.</p>
+        </div>
+      </div>
+
+      <!-- Spiritual Welfare -->
+      <div class="col-md-3">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="fa-solid fa-church"></i>
+          </div>
+          <h5 class="feature-title">Spiritual Welfare</h5>
+          <p class="feature-text">Built around strong Catholic values, with weekly mass, adoration, and daily prayers to nurture faith.</p>
+        </div>
+      </div>
+
+      <!-- Learning Environment -->
+      <div class="col-md-3">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-building-fill"></i>
+          </div>
+          <h5 class="feature-title">Learning Environment</h5>
+          <p class="feature-text">Modern facilities and structures foster effective teaching and learning across all disciplines.</p>
+        </div>
+      </div>
+
+      <!-- Co-curricular Activities -->
+      <div class="col-md-3">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h5 class="feature-title">Co-curricular Activities</h5>
+          <p class="feature-text">A wide range of activities promote holistic development in knowledge, talent, and creativity.</p>
+        </div>
+      </div>
+
+
+<div class="col-md-5">
+  <div class="feature-box contact-box">
+    <h3 class="feature-title">Do You Want Admission? <br>
+    Contact Us Anytime.</h3><br>
+    <p class="feature-text">
+      <i class="bi bi-telephone"></i> Phone: (+256) 759‑438124<br>
+        <i class="bi bi-whatsapp"></i> WhatsApp: (+256) 759‑438124<br>
+      <i class="bi bi-tiktok"></i> TikTok: <br>
+      <i class="bi bi-envelope"></i> </td> <td>Email:</td> <td>holyfamilysecondaryschool@gmail.com<br> 
+            <i class="bi bi-globe"></i> Website:<br>
+      <i class="bi bi-geo-alt-fill"></i> Address: Holy Family Secondary School, Namayumba<br><br>
+      </p>
+      <a href="#"><button class="contact-btn"><h5><strong style="text-align: center;">ADMISSION <i class="bi bi-arrow-right"></i></strong></h5></button></a>
+    </p>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
   <!-- Hero Buttons -->
   <div class="text-center my-4">
     <a href="#" class="hero-btn btn-inquire">Inquire</a>
@@ -660,6 +830,37 @@ May God bless you.
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Navbar toggler: swap hamburger ↔ X
+  const toggler = document.querySelector('.navbar-toggler');
+  const iconSpan = toggler.querySelector('.navbar-toggler-icon');
+
+  toggler.addEventListener('click', () => {
+    if (toggler.classList.contains('collapsed')) {
+      // menu is opening → show X
+      iconSpan.innerHTML = '✖';
+    } else {
+      // menu is closing → show hamburger again
+      iconSpan.innerHTML = '';
+    }
+  });
+
+  // Collapse menu on nav link click
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('#navbarNav');
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+
+      // reset icon back to hamburger
+      const iconSpan = document.querySelector('.navbar-toggler .navbar-toggler-icon');
+      if (iconSpan) iconSpan.innerHTML = '';
+    });
+  });
 </script>
+
+
+
+
 </body>
 </html>
