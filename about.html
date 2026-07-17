@@ -69,6 +69,20 @@ body {
       color: var(--maroon) !important;
     }
 
+.navbar-brand {
+  white-space: normal;   /* allow text to wrap */
+  word-wrap: break-word; /* break long words if needed */
+  font-size: 1rem;       /* adjust size for smaller screens */
+  max-width: 70%;        /* prevent it from stretching too wide */
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 0.9rem;   /* smaller text on phones */
+    line-height: 1.2;    /* tighter spacing */
+  }
+}
+
     /* Hero carousel aspect ratio */
     .carousel-item img {
   width: 100%;
@@ -189,44 +203,172 @@ body {
 }
 
 
-#backToTop {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 999;
-  background-color: var(--maroon);
-  color: var(--white);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
+
+    /* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
-#backToTop:hover {
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Gallery-style transition */
+.carousel-item {
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+}
+.carousel-item.active {
+  opacity: 1;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--maroon);
+  border-radius: 50%;
+  padding: 15px;
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
   background-color: var(--deep-green);
 }
 
-.about-info-block {
-  background-color: var(--cream); /* cream background */
+#backToTop {
+  display: none;              /* hidden until scroll */
+  position: fixed;            /* floats on screen */
+  bottom: 20px;               /* distance from bottom */
+  right: 20px;                /* distance from right */
+  z-index: 999;               /* stays above other elements */
+  background-color: #198754;  /* Bootstrap green */
+  color: #fff;
+  border: none;
+  border-radius: 50%;         /* round button */
+  padding: 12px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #145c32;  /* darker green on hover */
+  transform: scale(1.1);
+}
+
+
+.wave-separator {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -100px; /* pushes waves upward to overlap carousel */
+  z-index: 10;
+}
+
+.wave-separator svg {
+  display: block;
+  width: 100%;
+  height: 150px; /* adjust height for bigger/smaller waves */
+}
+
+.headteacher-section {
+  background-color: var(--cream);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.headteacher-photo {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.headteacher-photo:hover {
+  transform: scale(1.05);
+}
+/* School Identity Section */
+.school-identity {
+  background-color: var(--white);
   padding: 40px;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.school-identity:hover {
+  box-shadow: 0 0 20px rgba(0,128,0,0.4); /* deep green glow */
+}
+
+.school-identity h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.school-identity h4 {
+  margin-top: 20px;
+}
+
+.school-identity ul li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.text-deep-green {
+  color: var(--deep-green);
+}
+
+/* Icon Hover Effects */
+.school-identity ul li i {
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.school-identity ul li:hover i {
+  transform: scale(1.2);
+  color: var(--maroon);
+  text-shadow: 0 0 8px rgba(128,0,0,0.6);
+}
+.vertical-divider {
+  width: 6px;              /* thickness of the line */
+  background-color: var(--deep-green);
+  border-radius: 3px;      /* rounded edges */
+  height: 100%;            /* full height of the column */
+}
+
+
+/* Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motto-banner {
+  background-color: var(--deep-green); /* strong school color */
+  color: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
-.about-info-block:hover {
-  box-shadow: 0 0 20px rgba(0,128,0,0.4); /* deep green glow */
-  transform: scale(1.02); /* subtle zoom */
+.motto-banner h2 {
+  font-family: 'Dancing Script', cursive; /* handwritten style */
+  font-size: 2rem;
+  margin: 0;
 }
 
-.about-info-block h2 {
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
+.motto-banner:hover {
+  box-shadow: 0 0 25px rgba(0,128,0,0.6); /* glowing effect */
+  transform: scale(1.02); /* subtle zoom */
 }
 
   </style>
@@ -259,13 +401,14 @@ body {
   
  <!-- About Us Information Block -->
 <section class="about-info-block fade-in container my-5">
-  <h2 style="color: var(--deep-green);">About Us</h2>
+  <h2 style="color: var(--deep-green);"><strong>About Us</strong></h2>
   <p style="line-height:1.6; text-align:justify;">
-    Holy Family Secondary School Namayumba is a Catholic-founded mixed day school,
-    established in 1999 under Kampala Archdiocese. We are committed to academic excellence,
-    ICT innovation, and holistic student development. Our institution nurtures learners
-    to grow academically, spiritually, and socially, preparing them to become responsible
-    citizens who live by our guiding motto: <strong>“In God We Succeed.”</strong>
+    Holy Family is a private catholic founded, mixed, day and boarding secondary school.
+It is an O & A-level offering both Arts and sciences. It was established in 1999 by Rev. Fr. Sylivest Kityo who by then was the parish priest of Holy Family Parish Namayumba. Currently, it is under Kampala Archdiocese. It is found in Holy Family Catholic Parish Namayumba, Naddangira Dinnery, Wakiso Vicariate in Kampala Archdiocese.
+Politically, it is located in Namayumba cell,   Luguzi ward, Namayumba Town council, Wakiso District in Uganda. It is located along Hoima Highway 29 miles from Kampala city.
+Holy family S.S Namayumba is a school offering secondary education that is aligned with the country’s education policies and legal frameworks.
+It offers its services bearing in mind that education is a basic human right and aligns its activities with education sector core goal of equipping learners with relevant knowledge and skills necessary for social-economic transformation and development. This is in line with the forth sustainable Development Goal (SDG) which emphasizes inclusive and quality education for all as well as the promotion of lifelong learning.
+
   </p>
 </section>
 
@@ -273,14 +416,28 @@ body {
 
 <!-- News & Events -->
 <section class="fade-in container my-5" style="background-color: var(--maroon); color: var(--cream); padding:20px; border-radius:8px;">
-  <h2 class="text-center">News & Events</h2>
-  <ul>
-    <li>ICT Lab Upgrade – July 2026</li>
-    <li>Sports Day – August 2026</li>
-    <li>A-Level Career Guidance – September 2026</li>
-  </ul>
+  <h2 class="text-center"><strong>School Vision:</strong></h2>
+  <h4 class="text-center" style="font-family: century;"><i>A school that trains holistic person for development. </i></h4>
 </section>
 
+<!-- News & Events -->
+<section class="fade-in container my-5" style="background-color: var(--maroon); color: var(--cream); padding:20px; border-radius:8px;">
+  <h2 class="text-center"><strong>Mission Statement:</strong></h2>
+  <h4 class="text-center" style="font-family: century;"><i>To train God fearing citizens and to maintain the standard of Education in the community, Nation and world at large. </i></h4>
+</section>
+<!-- News & Events -->
+<section class="fade-in container my-5" style="background-color: var(--maroon); color: var(--cream); padding:20px; border-radius:8px;">
+   <h2 class="text-center"><strong>School Motto:</strong></h2>
+  <h4 class="text-center" style="font-family: century;"><i>"In God we succeed."</i></h4>
+</section>
+<!-- News & Events -->
+<section class="fade-in container my-5" style="background-color: var(--maroon); color: var(--cream); padding:20px; border-radius:8px;">
+   <h2 class="text-left"><strong>School Core Values:</strong></h2>
+  <h4 class="text-left" style="font-family: century;"><i>a)  God fearing.</i></h4>
+  <h4 class="text-left" style="font-family: century;"><i>b)  Discipline</i></h4>
+  <h4 class="text-left" style="font-family: century;"><i>c)  Respect</i></h4>
+  <h4 class="text-left" style="font-family: century;"><i>d)  Environmental conservation.</i></h4>
+</section>
 
   <!-- Hero Buttons -->
   <div class="text-center my-4">
@@ -304,63 +461,68 @@ body {
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const faders = document.querySelectorAll('.fade-in');
-    const options = {
-      threshold: 0.2
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, options);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  });
+<script>
+  // Fade-in animation using Intersection Observer
   document.addEventListener("DOMContentLoaded", () => {
     const faders = document.querySelectorAll('.fade-in');
     const options = { threshold: 0.2 };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, options);
 
-    faders.forEach(fader => {
-      observer.observe(fader);
-    });
+    faders.forEach(fader => observer.observe(fader));
   });
 
-</script>
-<!-- Back to Top Button -->
-<button id="backToTop" title="Go to top">↑</button>
-
-<script>
-  // Show button when scrolling down
+  // Back to Top Button
   const backToTop = document.getElementById("backToTop");
-  window.onscroll = function() {
+  window.addEventListener("scroll", () => {
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       backToTop.style.display = "block";
     } else {
       backToTop.style.display = "none";
     }
-  };
+  });
 
-  // Scroll to top when clicked
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Navbar toggler: swap hamburger ↔ X
+  const toggler = document.querySelector('.navbar-toggler');
+  const iconSpan = toggler.querySelector('.navbar-toggler-icon');
+
+  toggler.addEventListener('click', () => {
+    if (toggler.classList.contains('collapsed')) {
+      // menu is opening → show X
+      iconSpan.innerHTML = '✖';
+    } else {
+      // menu is closing → show hamburger again
+      iconSpan.innerHTML = '';
+    }
+  });
+
+  // Collapse menu on nav link click
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('#navbarNav');
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+
+      // reset icon back to hamburger
+      const iconSpan = document.querySelector('.navbar-toggler .navbar-toggler-icon');
+      if (iconSpan) iconSpan.innerHTML = '';
+    });
+  });
 </script>
+
+
+
 
 </body>
 </html>
